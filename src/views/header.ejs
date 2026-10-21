@@ -1,0 +1,14 @@
+<nav style="display:flex;gap:12px;align-items:center;padding:12px;border-bottom:1px solid #ccc">
+  <a href="/">Головна</a>
+  <a href="/products">Товари</a>
+  <a href="/protected">Protected</a>
+  <% if (user) { %>
+    <span>Привіт, <%= user.name %></span>
+    <form method="POST" action="/logout" style="margin:0">
+      <button type="submit">Вийти</button>
+    </form>
+  <% } else { %>
+    <a href="/login">Вхід</a>
+    <a href="/register">Реєстрація</a>
+  <% } %>
+</nav>

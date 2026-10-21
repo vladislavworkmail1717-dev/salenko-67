@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Товари</title>
+  <style>
+    body { font-family: sans-serif; }
+    table { border-collapse: collapse; width: 100%; max-width: 900px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <%- include('header') %>
+  <h1>Товари (MongoDB Atlas)</h1>
+
+  <% if (products.length === 0) { %>
+    <p>У колекції поки немає товарів. Запустіть <code>npm run seed</code>.</p>
+  <% } else { %>
+    <p>Знайдено: <%= products.length %></p>
+    <table>
+      <thead>
+        <tr><th>Назва</th><th>Категорія</th><th>Ціна, грн</th><th>Наявність</th><th>Опис</th></tr>
+      </thead>
+      <tbody>
+        <% products.forEach(p => { %>
+          <tr>
+            <td><%= p.name %></td>
+            <td><%= p.category %></td>
+            <td><%= p.price %></td>
+            <td><%= p.inStock ? 'Є' : 'Немає' %></td>
+            <td><%= p.description %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</body>
+</html>

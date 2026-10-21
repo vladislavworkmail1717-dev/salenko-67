@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head><meta charset="UTF-8"><title>Вхід</title></head>
+<body>
+  <%- include('header') %>
+  <h1>Вхід</h1>
+  <% if (error) { %><p style="color:red"><%= error %></p><% } %>
+  <form method="POST" action="/login">
+    <p><input type="email" name="email" placeholder="Email" required></p>
+    <p><input type="password" name="password" placeholder="Пароль" required></p>
+    <button type="submit">Увійти</button>
+  </form>
+</body>
+</html>
